@@ -37,8 +37,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.auth',
+    'django.contrib.messages',
+    'django.contrib.sites',
+    
     'crew',
     'phonenumber_field',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    # include social providers to be enabled
+    'allauth.socialaccount.providers.google'
 ]
 
 MIDDLEWARE = [
