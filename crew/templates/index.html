@@ -4,6 +4,14 @@
 
 	<html>
     	<h1>{{test_var}}</h1>
+        {% for client in clients %}
+        <div>
+        {{ client.first_name }} {{ client.last_name }}
+        </div>
+        <div>
+            Service Duration: {{ client.service_duration }} minutes
+        </div>
+        {% endfor %}
 	</html>
 
 {% endblock %}
