@@ -11,5 +11,5 @@ class Client(models.Model):
     first_service_date = models.DateField()
     services_per_month = models.IntegerField()
     service_duration = models.IntegerField()
-    images = models.ImageField(blank=True)
+    images = models.ImageField(blank=True, upload_to='media/images/')
     notes = models.CharField(blank=True, max_length=2000)
