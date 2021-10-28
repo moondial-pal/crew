@@ -9,12 +9,7 @@ class Client(models.Model):
     email = models.EmailField()
     phone_number = PhoneNumberField(null=False, blank=False, unique=True)
     first_service_date = models.DateField()
-
-    # change to integer field
-    services_per_month = models.CharField(max_length=100)
-    # change to integer field
-    service_duration = models.CharField(max_length=100)
-    # make optional
-    images = models.ImageField()
-    # make optional
-    notes = models.CharField(max_length=2000)
+    services_per_month = models.IntegerField(max_length=100)
+    service_duration = models.IntegerField(max_length=100)
+    images = models.ImageField(blank=True)
+    notes = models.CharField(blank=True, max_length=2000)
