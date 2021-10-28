@@ -15,3 +15,15 @@ def index(request):
             "clients": clients
         },
     )
+
+
+def client(request, client_id):
+    # get a specific client
+    client = Client.objects.get(id=client_id)
+
+    return render(
+        request, "client.html",
+        {
+            "client": client
+        },
+    )

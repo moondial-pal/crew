@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<html>
+        <h1>{{ client.first_name }} {{ client.last_name }}</h1>
+        <div>
+            Service Details: {{ client.service_duration }} minutes {{ client.services_per_month }} time(s) per month
+        </div>
+	</html>
+
+{% endblock %}
