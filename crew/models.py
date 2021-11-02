@@ -13,3 +13,8 @@ class Client(models.Model):
     service_duration = models.IntegerField()
     images = models.ImageField(blank=True, upload_to='crew/media/images/')
     notes = models.CharField(blank=True, max_length=2000)
+
+
+class Truck(models.Model):
+    truck_id = models.IntegerField()
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)  
