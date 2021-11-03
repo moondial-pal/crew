@@ -16,5 +16,7 @@ class Client(models.Model):
 
 
 class Truck(models.Model):
-    truck_id = models.IntegerField()
-    client = models.ForeignKey(Client, on_delete=models.CASCADE)  
+    truck_number_id = models.IntegerField()
+    truck_email = models.EmailField()
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
+
