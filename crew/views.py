@@ -21,14 +21,14 @@ def clients(request):
             },
     )
 
-def client(request, client_id):
+def client_details(request, client_id):
     # get a specific client
     client = Client.objects.get(id=client_id)
 
     return render(
-            request, "client.html",
+            request, "client_details.html",
             {
-                "client": client
+                "client_details": client
             },
     )
 
