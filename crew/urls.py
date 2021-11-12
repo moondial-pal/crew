@@ -1,10 +1,11 @@
 from django.urls import path
 
-from crew.views import index, client
+from crew.views import index, clients, client_details
 
 app_name = "crew"
 
 urlpatterns = [
     path("", index, name="index"),
-    path("client/<int:client_id>/details", client, name="client"),
+    path("clients/", clients, name="clients"),
+    path("clients/<int:client_id>/details", client_details, name="client_details"),
 ]
