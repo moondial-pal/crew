@@ -21,7 +21,20 @@ def clients(request):
             },
     )
 
-
-
+def client(request, client_id):
     # get a specific client
+    client = Client.objects.get(id=client_id)
+
+    return render(
+            request, "client.html",
+            {
+                "client": client
+            },
+    )
+
+
+
+
+
+
 #    client = Client.objects.get(id=client_id)

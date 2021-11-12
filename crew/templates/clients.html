@@ -3,11 +3,12 @@
 {% block content %}
 
 	<html>
-		<h1></h1>
-		{% for client in clients %}
-		<div>
-			{{ client.first_name }} {{ client.last_name }}"
-		</div>
+	<h1></h1>
+	{% for client in clients %}
+	<div>
+		<a href="{% url 'crew:client' client.id %}">{{ client.first_name }} {{ client.last_name }}</a>
+	</div>
+
         <div>
             Service Details: {{ client.service_duration }} minutes {{ client.services_per_month }} time(s) per month
         </div>
