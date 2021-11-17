@@ -1,6 +1,6 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
-
+from address.models import AddressField
 
 class Client(models.Model):
     first_name = models.CharField(max_length=100)
@@ -20,3 +20,6 @@ class Truck(models.Model):
     truck_email = models.EmailField()
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
 
+class Service(models.Model):
+    client_truck = models.ForeignKey(Truck, on_delete=models.CASCADE)
+    address = AddressField()
