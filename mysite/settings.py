@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     # 3rd party
     'phonenumber_field',
+    'address',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -109,6 +110,9 @@ TEMPLATES = [
         },
     },
 ]
+
+# Google Maps JavaScript API Key
+GOOGLE_API_KEY = os.environ.get('GOOGLE_MAPS_JS_API_KEY')
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
