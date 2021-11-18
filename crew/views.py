@@ -1,13 +1,15 @@
 from django.shortcuts import render
 from crew.models import Client
-
+from crew.forms import PersonForm
 # Create your views here.
 
 def index(request):
+    form = PersonForm()
     return render(
             request, "index.html",
         {
             "test_var": "hello world",
+            "form": form
         },
     )
 
