@@ -34,7 +34,10 @@ def client_details(request, client_id):
             },
     )
 
-
+def route_schedule(request):
+    return render(
+            request, "route_schedule.html",
+    )
 
 
 
