@@ -9,4 +9,5 @@ urlpatterns = [
     path("clients/", clients, name="clients"),
     path("clients/<int:client_id>/details", client_details, name="client_details"),
     path("route_schedule/", route_schedule, name="route_schedule"),
+    path("<int:year>/<str:month>/", route_schedule, name="route_schedule"),
 ]
