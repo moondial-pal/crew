@@ -1,9 +1,15 @@
 {% extends 'base.html' %}
 
+{% block extra_head %}
+{% endblock %}
 
 {% block content %}
+	{% for service in services %}
+	<div>
+		<a href="{% url 'crew:client_details' service.client.id %}">{{ service.client.first_name }} {{ service.client.last_name }}</a>
+	</div>
+	{% endfor %}
 
-{% block extra_head %}
 
 <center>
 <h1>Truck route for {{ month }} {{ year }}</h1>
@@ -16,5 +22,4 @@
 {% endblock %}
 
 
-{% endblock %}
 

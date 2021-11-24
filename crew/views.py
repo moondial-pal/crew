@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from crew.models import Client
+from crew.models import Client, Truck, Service
 from crew.forms import PersonForm
 import calendar
 from calendar import HTMLCalendar
@@ -19,7 +19,9 @@ def index(request):
 
 
 def clients(request):
-    clients = Client.objects.all()
+    truck = Truck.objects.filter(user=request.user).first()
+    clients = Client.objects.filter(truck=truck)
+
     return render(
             request, "clients.html",
             {
@@ -46,11 +48,17 @@ def route_schedule(request, year=datetime.now().year, month=datetime.now().strft
     now = datetime.now()
     current_year = now.year
     time = now.strftime('%I:%M: %p ')
+
+    services = Service.objects.filter(date=datetime.today())
+    ## filter service based on clients that belong to truck
+
+
     return render(
             request, "route_schedule.html",
             {
+            "services": services,
             "year": year,
-            "month": month, 
+            "month": month,
             "month_number": month_number,
             "cal": cal,
             "current_year": current_year,
@@ -60,5 +68,5 @@ def route_schedule(request, year=datetime.now().year, month=datetime.now().strft
 
 
 
-    
+
 #    client = Client.objects.get(id=client_id)

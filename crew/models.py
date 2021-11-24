@@ -1,6 +1,8 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 from address.models import AddressField
+from django.conf import settings
+
 
 class Client(models.Model):
     first_name = models.CharField(max_length=100)
@@ -11,7 +13,7 @@ class Client(models.Model):
     first_service_date = models.DateField()
     services_per_month = models.IntegerField()
     service_duration = models.IntegerField()
-    images = models.ImageField(blank=True, upload_to='crew/media/images/')
+    images = models.ImageField(blank=True, upload_to="crew/media/images/")
     notes = models.CharField(blank=True, max_length=2000)
 
 
@@ -19,7 +21,10 @@ class Truck(models.Model):
     truck_id = models.IntegerField()
     truck_email = models.EmailField()
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             on_delete=models.CASCADE)
+
 
 class Service(models.Model):
-    client_truck = models.ForeignKey(Truck, on_delete=models.CASCADE)
-    address = AddressField()
+    date = models.DateField()
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
