@@ -9,7 +9,7 @@
 {% load socialaccount %}
 
 	<html>
-    	<h1>{{test_var}}</h1>
+		<h1>{{ test_var }} {{ user }}</h1>
         {% for client in clients %}
         <div>
             <a href="{% url 'crew:clients' client.id %}">{{ client.first_name }} {{ client.last_name }}</a>
