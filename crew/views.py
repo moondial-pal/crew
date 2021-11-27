@@ -9,15 +9,12 @@ from datetime import datetime
 
 def index(request):
     form = PersonForm()
-    user = Truck.objects.filter(user=request.user).first()
     return render(
             request, 
             "index.html",
         {
             "test_var": "hello",
             "form": form,
-            "truck": user,
-            
         },
     )
 
