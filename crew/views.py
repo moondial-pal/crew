@@ -9,11 +9,15 @@ from datetime import datetime
 
 def index(request):
     form = PersonForm()
+    user = Truck.objects.filter(user=request.user).first()
     return render(
-            request, "index.html",
+            request, 
+            "index.html",
         {
-            "test_var": "hello world",
-            "form": form
+            "test_var": "hello",
+            "form": form,
+            "truck": user,
+            
         },
     )
 
@@ -69,4 +73,3 @@ def route_schedule(request, year=datetime.now().year, month=datetime.now().strft
 
 
 
-#    client = Client.objects.get(id=client_id)
