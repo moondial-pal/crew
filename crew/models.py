@@ -4,7 +4,16 @@ from address.models import AddressField
 from django.conf import settings
 
 
+
+class Truck(models.Model):
+    truck_id = models.IntegerField()
+    truck_email = models.EmailField()
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             on_delete=models.CASCADE)
+
+
 class Client(models.Model):
+    truck = models.ForeignKey(Truck, on_delete=models.CASCADE, null=True)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     address = models.CharField(max_length=100)
@@ -15,14 +24,6 @@ class Client(models.Model):
     service_duration = models.IntegerField()
     images = models.ImageField(blank=True, upload_to="crew/media/images/")
     notes = models.CharField(blank=True, max_length=2000)
-
-
-class Truck(models.Model):
-    truck_id = models.IntegerField()
-    truck_email = models.EmailField()
-    client = models.ForeignKey(Client, on_delete=models.CASCADE)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL,
-                             on_delete=models.CASCADE)
 
 
 class Service(models.Model):
