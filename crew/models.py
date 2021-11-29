@@ -1,15 +1,13 @@
-from django.db import models
-from phonenumber_field.modelfields import PhoneNumberField
 from address.models import AddressField
 from django.conf import settings
-
+from django.db import models
+from phonenumber_field.modelfields import PhoneNumberField
 
 
 class Truck(models.Model):
     truck_id = models.IntegerField()
     truck_email = models.EmailField()
-    user = models.ForeignKey(settings.AUTH_USER_MODEL,
-                             on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
 
 class Client(models.Model):

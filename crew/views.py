@@ -10,7 +10,7 @@ from datetime import datetime
 def index(request):
     form = PersonForm()
     return render(
-            request, 
+            request,
             "index.html",
         {
             "test_var": "hello",
@@ -50,9 +50,10 @@ def route_schedule(request, year=datetime.now().year, month=datetime.now().strft
     current_year = now.year
     time = now.strftime('%I:%M: %p ')
 
-    services = Service.objects.filter(date=datetime.today())
     ## filter service based on clients that belong to truck
-
+    truck = Truck.objects.filter(user=request.user).first()
+    clients = Client.objects.filter(truck=truck)
+    services = Service.objects.filter(date=datetime.today(), client__in=clients).all()
 
     return render(
             request, "route_schedule.html",
