@@ -9,19 +9,8 @@
 {% load socialaccount %}
 
 	<html>
-		<h1>{{ test_var }}</h1>
-        {% for client in clients %}
-        <div>
-            <a href="{% url 'crew:clients' client.id %}">{{ client.first_name }} {{ client.last_name }}</a>
-        </div>
-        <div>
-            Service Duration: {{ client.service_duration }} minutes
-
-	</div>
-        {% endfor %}
-        
-	    {{ form.media }}
-	    {{ form }}</br></br>
+	    <center>
+		<h1>{{ greeting }}</h1>
 	    <center>
 	{% if user.is_authenticated %}
 	  <p>Welcome, you are logged in as {{ user.username }}</p>

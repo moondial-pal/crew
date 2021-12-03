@@ -13,8 +13,7 @@ def index(request):
             request,
             "index.html",
         {
-            "test_var": "hello",
-            "form": form,
+            "greeting": "Welcom Eco Gardeners!",
         },
     )
 
