@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for client in clients %}
+<div>
+    Service Details: {{ client.service_duration }} minutes {{ client.services_per_month }} time(s) per month
+</div>
+{% endfor %}
+
+{% endblock %}
