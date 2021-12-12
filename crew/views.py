@@ -30,13 +30,12 @@ def clients(request):
     )
 
 def client_details(request, client_id):
-    # get a specific client
-    client = Client.objects.get(id=client_id)
-
+    truck = Truck.objects.filter(user=request.user).first()
+    clients = Client.objects.filter(truck=truck, id=client_id)
     return render(
             request, "client_details.html",
             {
-                "client_details": client
+                "clients": clients
             },
     )
 
