@@ -3,9 +3,32 @@
 {% block content %}
 
 {% for client in clients %}
+
+<center>
 <div>
-    Service Details: {{ client.service_duration }} minutes {{ client.services_per_month }} time(s) per month
+	<h1> {{ client.address }} </h1>
+    <b>Service Details:</b> {{ client.service_duration }} 
+    minutes {{ client.services_per_month }} time(s) per month
+    </br> <b> TRUCK #: </b> {{ client.truck }}
+    </br> <b> EMAIL: </b> {{ client.email }}
+    </br> <b> PHONE NUMBER: </b> {{ client.phone_number }}
+    </br> <b> FIRST NAME: </b> {{ client.first_name }}
+    </br> <b> LAST NAME: </b> {{ client.last_name }}
+    </br> <b> NOTES: </b> {{ client.notes }}
+    </br> <b> Pictures: </b> {{ client.images }}
 </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</center>
+
 {% endfor %}
 
 {% endblock %}
