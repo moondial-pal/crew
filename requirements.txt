@@ -10,9 +10,7 @@ django-allauth==0.45.0
 django-phonenumber-field==5.2.0
 greenlet==1.1.2
 idna==3.3
-jedi==0.18.1
 msgpack==1.0.3
-neovim==0.3.1
 oauth==1.0.1
 oauthlib==3.1.1
 parso==0.8.3
@@ -20,7 +18,6 @@ phonenumbers==8.12.35
 Pillow==8.4.0
 pycparser==2.20
 PyJWT==2.3.0
-pynvim==0.4.3
 python-dotenv==0.19.2
 python3-openid==3.2.0
 pytz==2021.3
