@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from crew.models import Client, Truck, Service
+from crew.models import Client, Truck, Service, MultipleImage
 from crew.forms import PersonForm
 import calendar
 from calendar import HTMLCalendar
@@ -68,4 +68,10 @@ def route_schedule(request, year=datetime.now().year, month=datetime.now().strft
 
 
 
-
+def upload(request):
+    if request.method == "POST":
+        images = request.FILES.getlist('media/images')
+        for image in images:
+            MultipleImage.objects.create(images=image)
+    images = MultipleImage.objects.all()
+    return render(request, 'client_details.html', {'images': images})

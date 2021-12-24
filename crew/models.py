@@ -27,3 +27,6 @@ class Client(models.Model):
 class Service(models.Model):
     date = models.DateField()
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
+
+class MultipleImage(models.Model):
+    images = models.FileField()    
