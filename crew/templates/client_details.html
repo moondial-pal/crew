@@ -15,8 +15,7 @@
     </br> <b> FIRST NAME: </b> {{ client.first_name }}
     </br> <b> LAST NAME: </b> {{ client.last_name }}
     </br> <b> NOTES: </b> {{ client.notes }}
-    </br> <b> Pictures: </b> {{ client.images }}
-
+{% endfor %}
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,7 +41,6 @@
 </body>
 </center>
 
-{% endfor %}
 
 {% endblock %}
 </div>
