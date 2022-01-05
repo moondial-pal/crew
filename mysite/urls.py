@@ -19,6 +19,7 @@ from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path("", include("crew.urls")),
+    path("client_details", include("crew.urls")),
     path('accounts/', include('allauth.urls')),
     path('logout', LogoutView.as_view()),
     path('crew-backdoor-backend/', admin.site.urls),
